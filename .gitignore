@@ -2,7 +2,8 @@
 data/.fastf1_cache/
 __pycache__/
 *.pyc
-data/cache/
+data/cache/*
+!data/cache/line_*.npz
 .remember/
 .claude/
 *.log
