@@ -167,4 +167,9 @@ td.empty { text-align: center; }
   #modes { order: 3; width: 100%; height: 34px; } #hdr-data { display: none; }
   #app { display: flex; flex-direction: column; } #left, #right { overflow: visible; max-height: none; border: 0; } #stage { order: -1; } #left { order: 0; } #right { order: 1; }
   #stage { height: 80vh; } #page { min-height: 70vh; } #notices { max-height: none; }
+  /* phones: pickers and the Run button first, then the 3D view, then results, then the long setup editor */
+  #left { display: contents; }
+  #left > * { background: var(--panel); padding: 10px 12px; }
+  #left > .selectors { order: -3; } #mode-panels { order: -2; } #stage { order: -1; height: 62vh; }
+  #setup-panel { order: 2; } #right { order: 1; }
 }
