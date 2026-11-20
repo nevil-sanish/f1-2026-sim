@@ -12,6 +12,13 @@ results.**
 Build status is tracked in [PROGRESS.md](PROGRESS.md). The interface contract between backend, UI and 3D
 scene is in [docs/API.md](docs/API.md).
 
+## Live demo
+
+**https://f1-2026-sim.onrender.com** works on desktop and phone. It is a read-only public build: saving
+setups, editing liveries and re-running calibration are disabled, and Monte Carlo is capped at 100 runs.
+It runs on Render's free plan, so the first visit after about 15 minutes idle takes up to a minute to
+wake up. `render.yaml` holds the service definition; every push to `main` redeploys it.
+
 ## Quick start: test-run a simulation
 
 ```bash
