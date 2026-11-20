@@ -260,7 +260,7 @@ def fetch_jolpica(catalog, sources, rounds_filter, force):
     except Exception as e:  # noqa: BLE001
         print(f"  drivers list failed ({e})")
     for (team, drv), rnds in per_round_starts.items():
-        team_drivers.setdefault(team, []).append((drv, len(rnds), max(rnds)))
+        team_drivers.setdefault(team, []).append((drv, len(rnds), max(rnds), sorted(rnds)))
     build_entry_list(drivers_meta, team_drivers)
     return cal
 
@@ -270,8 +270,11 @@ def build_entry_list(drivers_meta, team_drivers):
     for tid, name, pu, default_drivers in DEFAULT_TEAMS:
         seen = team_drivers.get(tid)
         if seen:
-            # current race drivers = the two with the most recent appearances; others are listed as reserves
-            seen_sorted = sorted(seen, key=lambda s: (-s[2], -s[1]))
+            # current race drivers = the two with most starts in the last few rounds, so a one-off stand-in at the
+            # latest round does not displace a regular driver; others are listed as reserves
+            last = max(s[2] for s in seen)
+            recent = lambda s: sum(1 for r in s[3] if r > last - 5)
+            seen_sorted = sorted(seen, key=lambda s: (-recent(s), -s[2], -s[1]))
             current = [s[0] for s in seen_sorted[:2]]
             others = [s[0] for s in seen_sorted[2:]]
             if set(current) != set(default_drivers):
