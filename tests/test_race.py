@@ -196,3 +196,25 @@ class StrategyTrendTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class OvertakeCountTests(unittest.TestCase):
+    """Average on-track overtakes per race with the full grid stay in a realistic per-track band."""
+
+    @staticmethod
+    def full_grid():
+        teams = json.loads((race_sim.drivers_mod.DATA / "teams.json").read_text())
+        return [entry(t["id"], d) for t in teams for d in t["drivers"]]
+
+    def mean_overtakes(self, track, seeds=range(5)):
+        grid = self.full_grid()
+        n = [len(race_sim.run_race(track, grid, seed=s)["overtakes"]) for s in seeds]
+        return sum(n) / len(n)
+
+    def test_monza_overtakes_realistic(self):
+        m = self.mean_overtakes("monza")
+        self.assertTrue(20 <= m <= 70, m)
+
+    def test_monaco_overtakes_very_low(self):
+        m = self.mean_overtakes("monaco")
+        self.assertLessEqual(m, 12, m)
