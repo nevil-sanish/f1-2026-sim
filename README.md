@@ -12,6 +12,45 @@ results.**
 Build status is tracked in [PROGRESS.md](PROGRESS.md). The interface contract between backend, UI and 3D
 scene is in [docs/API.md](docs/API.md).
 
+## Quick start: test-run a simulation
+
+```bash
+git clone https://github.com/nevil-sanish/f1-2026-sim.git
+cd f1-2026-sim
+python -m venv .venv
+.venv/bin/pip install -r requirements.txt numba
+```
+
+**1. Headless check (no browser).** One qualifying lap and a full 22-car race, printed to the terminal:
+
+```bash
+.venv/bin/python scripts/demo.py                 # Monza
+.venv/bin/python scripts/demo.py monaco --seed 7 # any track id from data/track_catalog.json
+```
+
+Expect a lap of about 1:22–1:23 at Monza and a classification with gaps, pit stops and the fastest lap.
+The first run on each track builds and caches its racing line (a few seconds), and numba compiles once.
+
+**2. The full app in the browser.**
+
+```bash
+.venv/bin/python run.py          # opens http://127.0.0.1:8765
+```
+
+- **Lap:** pick a track, team and driver, press *Run lap*. You get the lap time, telemetry charts and the
+  car driving the optimal line in 3D (orbit, chase, onboard, TV, heli and top cameras).
+- **Compare:** two cars or setups on the same track, with delta trace and ghost car.
+- **Optimise:** search the setup for the fastest lap and see before/after and sensitivities.
+- **Race:** press *Full grid*, then *Run race*. Classification, lap chart, gaps, tyre strategy,
+  overtakes and a 3D replay. Set *Monte Carlo* above 1 for win/podium probabilities over many seeds.
+- **Livery / Data:** team colours; calibration report and a *Re-run calibration* button.
+
+**3. Tests.**
+
+```bash
+.venv/bin/python -m unittest discover -s tests -v
+```
+
 ## Install
 
 Python 3.10+ (developed on 3.13).
@@ -41,7 +80,7 @@ Data and assets (already cached in this folder; re-run after each new race):
 .venv/bin/python scripts/fetch_data.py --source openf1 # auto | openf1 | fastf1
 .venv/bin/python scripts/fetch_data.py --force         # refetch everything
 .venv/bin/python scripts/fetch_assets.py               # CC0 textures and HDRIs (--res 1k|2k, --force)
-.venv/bin/python scripts/calibrate_presets.py          # team presets + fit report + validation table (in progress)
+.venv/bin/python scripts/calibrate_presets.py          # team presets + fit report + validation table (~2.5 min)
 .venv/bin/python scripts/alignment_report.py           # telemetry alignment RMS for every track
 .venv/bin/python -c "from f1sim import racing_line; racing_line.build_all(force=True)"  # rebuild lines
 ```
@@ -91,7 +130,7 @@ web/ ─────────────────────> UI, hand-d
 - **Racing line** (`f1sim/racing_line.py`). Curvature-plus-length least squares inside the track edges
   (kerbs give extra room at a grip penalty), with a golden-section search over the weighting to minimise
   lap time. Cached per track.
-- **Race simulator** (`f1sim/race/`; the race loop and Monte Carlo are still being built, see PROGRESS.md). A lap-time surface from the solver (fuel, tyre age, compound), tyre
+- **Race simulator** (`f1sim/race/`). A lap-time surface from the solver (fuel, tyre age, compound), tyre
   strategy, traffic with dirty air and override, overtaking probability from pace delta, track difficulty
   and racecraft, pit stops, safety cars, DNFs and Monte Carlo runs. Public race parameters (pit loss,
   stint lengths) come from `f1sim/calibration/race_targets.py` → `data/race_params.json`.
@@ -105,7 +144,7 @@ web/ ─────────────────────> UI, hand-d
 - **Server** (`f1sim/server.py`, `run.py`). Stdlib `http.server` with JSON endpoints for tracks, teams,
   drivers, parameter schema, presets, liveries, simulate, compare, race, optimise, calibrate and setups;
   long jobs run in the background (`f1sim/jobs.py`). Setup suitability flags are in `f1sim/suitability.py`.
-- **UI and 3D** (`web/`; still being built and not yet tested end to end, see PROGRESS.md). Static HTML and ES modules, no build step. Charts are drawn on canvas by hand.
+- **UI and 3D** (`web/`). Static HTML and ES modules, no build step. Charts are drawn on canvas by hand.
   The 3D scene uses Three.js vendored in `web/vendor/three/`: a procedural car with team colours (or your
   own GLB), track ribbon with kerbs and run-off, HDRI lighting, several cameras and post-processing. If an
   asset is missing the scene falls back to plain materials and shows a note.
@@ -170,11 +209,10 @@ From the live data at fetch time (after round 20):
   not on it.** Madring (Madrid) is round 14. Rounds 21–23 (Las Vegas, Qatar, Abu Dhabi) had not run yet,
   so they have no telemetry; re-run `fetch_data.py` after each race.
 - **Entry list.** The live entries differ from the brief. The rosters are written to `data/teams.json` and
-  `data/drivers.json` (others are kept as reserves). PROGRESS.md §3.1 records Red Bull as Verstappen +
-  Lawson and Racing Bulls as Lindblad + Tsunoda; the current `data/teams.json` lists Red Bull as
-  Verstappen + Hadjar (Lawson reserve) and Racing Bulls as Lindblad + Lawson (Tsunoda reserve), following
-  the latest results. Haas lists Bearman + Rafael Câmara (Câmara raced round 20; Ocon and Hirakawa are
-  reserves). Cadillac is Pérez + Bottas.
+  `data/drivers.json`, picking each team's two drivers by starts over the last five rounds, so one-off
+  stand-ins stay reserves. Red Bull is Verstappen + Hadjar (Lawson reserve), Racing Bulls is Lindblad +
+  Lawson (Tsunoda reserve), Haas is Bearman + Ocon (Câmara and Hirakawa reserves) and Cadillac is
+  Pérez + Bottas.
 - **Standings after round 20:** Mercedes, Ferrari, Red Bull, McLaren, Racing Bulls, Alpine, Haas, Audi,
   Williams, Aston Martin, Cadillac.
 
