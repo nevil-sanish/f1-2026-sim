@@ -1,0 +1,66 @@
+{
+ "team": "aston_martin",
+ "values": {
+  "ClA_scale": 0.85,
+  "CdA_scale": 1.1499,
+  "ice_power": 381.1087,
+  "energy_efficiency": 1.0,
+  "mass_above_min": 19.999
+ },
+ "prov": {
+  "ClA_scale": "public-derived",
+  "CdA_scale": "public-derived",
+  "ice_power": "public-derived",
+  "energy_efficiency": "public-derived",
+  "mass_above_min": "public-derived"
+ },
+ "fit": {
+  "target_gap_pct": 4.235,
+  "sim_gap_pct": 4.059,
+  "residual_pct": -0.176,
+  "tracks": [
+   "monza",
+   "monaco",
+   "silverstone",
+   "suzuka",
+   "baku",
+   "mexico",
+   "catalunya",
+   "cota"
+  ],
+  "per_track": {
+   "monza": {
+    "target": 4.113,
+    "sim": 4.041
+   },
+   "monaco": {
+    "target": 4.577,
+    "sim": 2.857
+   },
+   "silverstone": {
+    "target": 5.393,
+    "sim": 5.347
+   },
+   "suzuka": {
+    "target": 4.357,
+    "sim": 4.325
+   },
+   "baku": {
+    "target": 3.967,
+    "sim": 4.293
+   },
+   "mexico": {
+    "target": 3.129,
+    "sim": 3.161
+   },
+   "catalunya": {
+    "target": 5.462,
+    "sim": 4.076
+   },
+   "cota": {
+    "target": 1.896,
+    "sim": 3.509
+   }
+  }
+ }
+}

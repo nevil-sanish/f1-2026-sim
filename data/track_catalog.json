@@ -1,0 +1,30 @@
+{
+  "_note": "Hand-authored catalogue. 'laps', 'pit_loss_s', 'overtake_difficulty' are estimates unless replaced by public-derived values at fetch/calibration time. type: permanent|street. night: floodlit race.",
+  "tracks": [
+    {"id": "albert_park", "name": "Australia (Albert Park)", "bacinger": "au-1953", "jolpica": "albert_park", "tum": "Melbourne", "type": "street", "night": false, "laps": 58, "pit_loss_s": 20.5, "overtake_difficulty": 0.55},
+    {"id": "shanghai", "name": "China (Shanghai)", "bacinger": "cn-2004", "jolpica": "shanghai", "tum": "Shanghai", "type": "permanent", "night": false, "laps": 56, "pit_loss_s": 23.0, "overtake_difficulty": 0.35},
+    {"id": "suzuka", "name": "Japan (Suzuka)", "bacinger": "jp-1962", "jolpica": "suzuka", "tum": "Suzuka", "type": "permanent", "night": false, "laps": 53, "pit_loss_s": 22.5, "overtake_difficulty": 0.65},
+    {"id": "miami", "name": "Miami", "bacinger": "us-2022", "jolpica": "miami", "tum": null, "type": "street", "night": false, "laps": 57, "pit_loss_s": 20.5, "overtake_difficulty": 0.45},
+    {"id": "montreal", "name": "Canada (Montreal)", "bacinger": "ca-1978", "jolpica": "villeneuve", "tum": "Montreal", "type": "street", "night": false, "laps": 70, "pit_loss_s": 18.5, "overtake_difficulty": 0.40},
+    {"id": "monaco", "name": "Monaco", "bacinger": "mc-1929", "jolpica": "monaco", "tum": null, "type": "street", "night": false, "laps": 78, "pit_loss_s": 20.0, "overtake_difficulty": 0.97},
+    {"id": "catalunya", "name": "Spain (Barcelona-Catalunya)", "bacinger": "es-1991", "jolpica": "catalunya", "tum": "Catalunya", "type": "permanent", "night": false, "laps": 66, "pit_loss_s": 22.0, "overtake_difficulty": 0.60},
+    {"id": "red_bull_ring", "name": "Austria (Red Bull Ring)", "bacinger": "at-1969", "jolpica": "red_bull_ring", "tum": "Spielberg", "type": "permanent", "night": false, "laps": 71, "pit_loss_s": 20.0, "overtake_difficulty": 0.30},
+    {"id": "silverstone", "name": "Britain (Silverstone)", "bacinger": "gb-1948", "jolpica": "silverstone", "tum": "Silverstone", "type": "permanent", "night": false, "laps": 52, "pit_loss_s": 20.5, "overtake_difficulty": 0.40},
+    {"id": "spa", "name": "Belgium (Spa)", "bacinger": "be-1925", "jolpica": "spa", "tum": "Spa", "type": "permanent", "night": false, "laps": 44, "pit_loss_s": 18.5, "overtake_difficulty": 0.25},
+    {"id": "hungaroring", "name": "Hungary (Hungaroring)", "bacinger": "hu-1986", "jolpica": "hungaroring", "tum": "Budapest", "type": "permanent", "night": false, "laps": 70, "pit_loss_s": 20.5, "overtake_difficulty": 0.80},
+    {"id": "zandvoort", "name": "Netherlands (Zandvoort)", "bacinger": "nl-1948", "jolpica": "zandvoort", "tum": "Zandvoort", "type": "permanent", "night": false, "laps": 72, "pit_loss_s": 21.0, "overtake_difficulty": 0.80},
+    {"id": "monza", "name": "Italy (Monza)", "bacinger": "it-1922", "jolpica": "monza", "tum": "Monza", "type": "permanent", "night": false, "laps": 53, "pit_loss_s": 24.0, "overtake_difficulty": 0.30},
+    {"id": "madring", "name": "Spain (Madrid / Madring)", "bacinger": "es-2026", "jolpica": "madring", "tum": null, "type": "street", "night": false, "laps": 57, "pit_loss_s": 21.0, "overtake_difficulty": 0.55},
+    {"id": "baku", "name": "Azerbaijan (Baku)", "bacinger": "az-2016", "jolpica": "baku", "tum": null, "type": "street", "night": false, "laps": 51, "pit_loss_s": 20.5, "overtake_difficulty": 0.30},
+    {"id": "sepang", "name": "Malaysia (Sepang)", "bacinger": "my-1999", "jolpica": "sepang", "tum": "Sepang", "type": "permanent", "night": false, "laps": 56, "pit_loss_s": 22.5, "overtake_difficulty": 0.35},
+    {"id": "bahrain", "name": "Bahrain (Sakhir)", "bacinger": "bh-2002", "jolpica": "bahrain", "tum": "Sakhir", "type": "permanent", "night": true, "laps": 57, "pit_loss_s": 23.0, "overtake_difficulty": 0.30},
+    {"id": "jeddah", "name": "Saudi Arabia (Jeddah)", "bacinger": "sa-2021", "jolpica": "jeddah", "tum": null, "type": "street", "night": true, "laps": 50, "pit_loss_s": 20.0, "overtake_difficulty": 0.45},
+    {"id": "marina_bay", "name": "Singapore (Marina Bay)", "bacinger": "sg-2008", "jolpica": "marina_bay", "tum": null, "type": "street", "night": true, "laps": 62, "pit_loss_s": 27.0, "overtake_difficulty": 0.85},
+    {"id": "cota", "name": "USA (COTA)", "bacinger": "us-2012", "jolpica": "americas", "tum": "Austin", "type": "permanent", "night": false, "laps": 56, "pit_loss_s": 20.5, "overtake_difficulty": 0.40},
+    {"id": "mexico", "name": "Mexico City", "bacinger": "mx-1962", "jolpica": "rodriguez", "tum": "MexicoCity", "type": "permanent", "night": false, "laps": 71, "pit_loss_s": 22.0, "overtake_difficulty": 0.50},
+    {"id": "interlagos", "name": "Brazil (Interlagos)", "bacinger": "br-1940", "jolpica": "interlagos", "tum": "SaoPaulo", "type": "permanent", "night": false, "laps": 71, "pit_loss_s": 21.0, "overtake_difficulty": 0.30},
+    {"id": "las_vegas", "name": "Las Vegas", "bacinger": "us-2023", "jolpica": "vegas", "tum": null, "type": "street", "night": true, "laps": 50, "pit_loss_s": 20.5, "overtake_difficulty": 0.30},
+    {"id": "lusail", "name": "Qatar (Lusail)", "bacinger": "qa-2004", "jolpica": "losail", "tum": null, "type": "permanent", "night": true, "laps": 57, "pit_loss_s": 25.5, "overtake_difficulty": 0.60},
+    {"id": "yas_marina", "name": "Abu Dhabi (Yas Marina)", "bacinger": "ae-2009", "jolpica": "yas_marina", "tum": "YasMarina", "type": "permanent", "night": true, "laps": 58, "pit_loss_s": 21.5, "overtake_difficulty": 0.50}
+  ]
+}

@@ -1,0 +1,66 @@
+{
+ "team": "red_bull",
+ "values": {
+  "ClA_scale": 0.9968,
+  "CdA_scale": 1.0786,
+  "ice_power": 404.8612,
+  "energy_efficiency": 0.9343,
+  "mass_above_min": 2.8737
+ },
+ "prov": {
+  "ClA_scale": "public-derived",
+  "CdA_scale": "public-derived",
+  "ice_power": "public-derived",
+  "energy_efficiency": "public-derived",
+  "mass_above_min": "public-derived"
+ },
+ "fit": {
+  "target_gap_pct": 0.403,
+  "sim_gap_pct": 0.543,
+  "residual_pct": 0.141,
+  "tracks": [
+   "monza",
+   "monaco",
+   "silverstone",
+   "suzuka",
+   "baku",
+   "mexico",
+   "catalunya",
+   "cota"
+  ],
+  "per_track": {
+   "monza": {
+    "target": 0.347,
+    "sim": 0.815
+   },
+   "monaco": {
+    "target": 0.06,
+    "sim": 0.292
+   },
+   "silverstone": {
+    "target": 0.721,
+    "sim": 0.695
+   },
+   "suzuka": {
+    "target": 1.352,
+    "sim": 0.668
+   },
+   "baku": {
+    "target": 0.95,
+    "sim": 0.721
+   },
+   "mexico": {
+    "target": 0.233,
+    "sim": 0.394
+   },
+   "catalunya": {
+    "target": 0.458,
+    "sim": 0.419
+   },
+   "cota": {
+    "target": 0.19,
+    "sim": 0.392
+   }
+  }
+ }
+}

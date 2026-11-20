@@ -1,0 +1,27 @@
+{
+ "grip_use_nudge": {
+  "russell": 0.00032,
+  "antonelli": -0.00032,
+  "leclerc": -6e-05,
+  "hamilton": 6e-05,
+  "piastri": -0.00137,
+  "norris": 0.00137,
+  "lawson": -0.00045,
+  "arvid_lindblad": 0.00159,
+  "bortoleto": 0.00011,
+  "hulkenberg": -0.00011,
+  "bearman": 0.00277,
+  "ocon": -0.00228,
+  "gasly": 0.004,
+  "colapinto": -0.004,
+  "perez": 0.00264,
+  "bottas": -0.00264,
+  "max_verstappen": 0.00233,
+  "hadjar": -0.00176,
+  "sainz": 0.00352,
+  "albon": -0.00352,
+  "alonso": 0.004,
+  "stroll": -0.004
+ },
+ "note": "Teammate qualifying head-to-head (dry rounds, public timing) mapped to a small grip_use nudge; half-weighted and capped; public-derived."
+}

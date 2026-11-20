@@ -1,0 +1,22 @@
+{
+ "base": "#b5b9bf",
+ "secondary": "#0b0c0e",
+ "accent": "#e10600",
+ "finish": "satin",
+ "regions": {
+  "nose": "base",
+  "engine_cover": "base",
+  "sidepods": "base",
+  "front_wing": "secondary",
+  "rear_wing": "secondary",
+  "endplates": "accent",
+  "halo": "carbon",
+  "floor": "carbon",
+  "wheel_covers": "carbon"
+ },
+ "numbers": {
+  "bortoleto": 5,
+  "hulkenberg": 27
+ },
+ "number_color": "#0b0c0e"
+}

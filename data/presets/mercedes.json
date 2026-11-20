@@ -1,0 +1,66 @@
+{
+ "team": "mercedes",
+ "values": {
+  "ClA_scale": 1.0004,
+  "CdA_scale": 1.0008,
+  "ice_power": 400.1378,
+  "energy_efficiency": 0.9152,
+  "mass_above_min": 0.0094
+ },
+ "prov": {
+  "ClA_scale": "public-derived",
+  "CdA_scale": "public-derived",
+  "ice_power": "public-derived",
+  "energy_efficiency": "public-derived",
+  "mass_above_min": "public-derived"
+ },
+ "fit": {
+  "target_gap_pct": 0.0,
+  "sim_gap_pct": 0.008,
+  "residual_pct": 0.008,
+  "tracks": [
+   "monza",
+   "monaco",
+   "silverstone",
+   "suzuka",
+   "baku",
+   "mexico",
+   "catalunya",
+   "cota"
+  ],
+  "per_track": {
+   "monza": {
+    "target": 0.073,
+    "sim": 0.019
+   },
+   "monaco": {
+    "target": 0.0,
+    "sim": 0.002
+   },
+   "silverstone": {
+    "target": 0.0,
+    "sim": 0.001
+   },
+   "suzuka": {
+    "target": 0.0,
+    "sim": 0.015
+   },
+   "baku": {
+    "target": 0.0,
+    "sim": 0.018
+   },
+   "mexico": {
+    "target": 0.012,
+    "sim": 0.005
+   },
+   "catalunya": {
+    "target": 0.0,
+    "sim": 0.004
+   },
+   "cota": {
+    "target": 0.0,
+    "sim": 0.01
+   }
+  }
+ }
+}

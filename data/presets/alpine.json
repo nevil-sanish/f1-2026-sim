@@ -1,0 +1,66 @@
+{
+ "team": "alpine",
+ "values": {
+  "ClA_scale": 0.8718,
+  "CdA_scale": 0.9478,
+  "ice_power": 398.9599,
+  "energy_efficiency": 0.9601,
+  "mass_above_min": 5.7981
+ },
+ "prov": {
+  "ClA_scale": "public-derived",
+  "CdA_scale": "public-derived",
+  "ice_power": "public-derived",
+  "energy_efficiency": "public-derived",
+  "mass_above_min": "public-derived"
+ },
+ "fit": {
+  "target_gap_pct": 1.297,
+  "sim_gap_pct": 1.243,
+  "residual_pct": -0.054,
+  "tracks": [
+   "monza",
+   "monaco",
+   "silverstone",
+   "suzuka",
+   "baku",
+   "mexico",
+   "catalunya",
+   "cota"
+  ],
+  "per_track": {
+   "monza": {
+    "target": 0.0,
+    "sim": 0.389
+   },
+   "monaco": {
+    "target": 1.631,
+    "sim": 1.472
+   },
+   "silverstone": {
+    "target": 2.215,
+    "sim": 2.268
+   },
+   "suzuka": {
+    "target": 1.028,
+    "sim": 1.085
+   },
+   "baku": {
+    "target": 1.484,
+    "sim": 0.944
+   },
+   "mexico": {
+    "target": 0.835,
+    "sim": 1.154
+   },
+   "catalunya": {
+    "target": 2.025,
+    "sim": 1.751
+   },
+   "cota": {
+    "target": 1.111,
+    "sim": 1.332
+   }
+  }
+ }
+}

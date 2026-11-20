@@ -1,0 +1,21 @@
+{
+  "name": "Monza low drag",
+  "track": "monza",
+  "team": "mclaren",
+  "driver": "norris",
+  "notes": "Example setup: trimmed wings for top speed, slightly more rearward brake bias, a click more front bar to calm the rear through the Lesmos. All values are estimates - use it as a starting point for comparisons.",
+  "values": {
+    "front_wing": 16.0,
+    "rear_wing": 12.0,
+    "beam_wing": 0,
+    "ride_height_f": 31.0,
+    "ride_height_r": 60.0,
+    "arb_f": 140,
+    "brake_bias": 55.5,
+    "brake_duct": 3,
+    "final_drive": 4.9,
+    "compound": "C4"
+  },
+  "driver_values": {},
+  "saved_at": "2026-11-17T12:00:00+0000"
+}

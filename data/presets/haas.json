@@ -1,0 +1,66 @@
+{
+ "team": "haas",
+ "values": {
+  "ClA_scale": 0.8501,
+  "CdA_scale": 0.9837,
+  "ice_power": 397.4406,
+  "energy_efficiency": 1.0,
+  "mass_above_min": 15.3329
+ },
+ "prov": {
+  "ClA_scale": "public-derived",
+  "CdA_scale": "public-derived",
+  "ice_power": "public-derived",
+  "energy_efficiency": "public-derived",
+  "mass_above_min": "public-derived"
+ },
+ "fit": {
+  "target_gap_pct": 1.968,
+  "sim_gap_pct": 2.0,
+  "residual_pct": 0.032,
+  "tracks": [
+   "monza",
+   "monaco",
+   "silverstone",
+   "suzuka",
+   "baku",
+   "mexico",
+   "catalunya",
+   "cota"
+  ],
+  "per_track": {
+   "monza": {
+    "target": 1.186,
+    "sim": 1.164
+   },
+   "monaco": {
+    "target": 3.707,
+    "sim": 2.074
+   },
+   "silverstone": {
+    "target": 2.712,
+    "sim": 3.209
+   },
+   "suzuka": {
+    "target": 1.725,
+    "sim": 1.961
+   },
+   "baku": {
+    "target": 2.194,
+    "sim": 1.746
+   },
+   "mexico": {
+    "target": 1.742,
+    "sim": 1.795
+   },
+   "catalunya": {
+    "target": 2.29,
+    "sim": 2.611
+   },
+   "cota": {
+    "target": 1.656,
+    "sim": 2.039
+   }
+  }
+ }
+}

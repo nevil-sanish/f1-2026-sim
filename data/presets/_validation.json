@@ -1,0 +1,135 @@
+[
+ {
+  "track": "albert_park",
+  "real_pole": 78.518,
+  "sim_pole": 80.93,
+  "err_pct": 3.07,
+  "fitted": false
+ },
+ {
+  "track": "baku",
+  "real_pole": 102.526,
+  "sim_pole": 95.342,
+  "err_pct": -7.01,
+  "fitted": true
+ },
+ {
+  "track": "catalunya",
+  "real_pole": 74.679,
+  "sim_pole": 74.239,
+  "err_pct": -0.59,
+  "fitted": false
+ },
+ {
+  "track": "cota",
+  "real_pole": 94.035,
+  "sim_pole": 94.972,
+  "err_pct": 1.0,
+  "fitted": false
+ },
+ {
+  "track": "hungaroring",
+  "real_pole": 77.207,
+  "sim_pole": 77.211,
+  "err_pct": 0.01,
+  "fitted": false
+ },
+ {
+  "track": "madring",
+  "real_pole": 91.824,
+  "sim_pole": 96.606,
+  "err_pct": 5.21,
+  "fitted": false
+ },
+ {
+  "track": "marina_bay",
+  "real_pole": 91.373,
+  "sim_pole": 91.866,
+  "err_pct": 0.54,
+  "fitted": false
+ },
+ {
+  "track": "mexico",
+  "real_pole": 76.514,
+  "sim_pole": 72.916,
+  "err_pct": -4.7,
+  "fitted": true
+ },
+ {
+  "track": "miami",
+  "real_pole": 87.798,
+  "sim_pole": 88.054,
+  "err_pct": 0.29,
+  "fitted": false
+ },
+ {
+  "track": "monaco",
+  "real_pole": 72.051,
+  "sim_pole": 72.288,
+  "err_pct": 0.33,
+  "fitted": true
+ },
+ {
+  "track": "montreal",
+  "real_pole": 72.578,
+  "sim_pole": 71.787,
+  "err_pct": -1.09,
+  "fitted": false
+ },
+ {
+  "track": "monza",
+  "real_pole": 81.786,
+  "sim_pole": 82.577,
+  "err_pct": 0.97,
+  "fitted": true
+ },
+ {
+  "track": "red_bull_ring",
+  "real_pole": 66.113,
+  "sim_pole": 66.567,
+  "err_pct": 0.69,
+  "fitted": false
+ },
+ {
+  "track": "sepang",
+  "real_pole": 95.13,
+  "sim_pole": 92.786,
+  "err_pct": -2.46,
+  "fitted": false
+ },
+ {
+  "track": "shanghai",
+  "real_pole": 92.064,
+  "sim_pole": 92.18,
+  "err_pct": 0.13,
+  "fitted": false
+ },
+ {
+  "track": "silverstone",
+  "real_pole": 88.111,
+  "sim_pole": 88.725,
+  "err_pct": 0.7,
+  "fitted": true
+ },
+ {
+  "track": "spa",
+  "real_pole": 104.361,
+  "sim_pole": 104.321,
+  "err_pct": -0.04,
+  "fitted": false
+ },
+ {
+  "track": "suzuka",
+  "real_pole": 88.778,
+  "sim_pole": 88.929,
+  "err_pct": 0.17,
+  "fitted": true
+ },
+ {
+  "track": "zandvoort",
+  "real_pole": 71.163,
+  "sim_pole": 72.497,
+  "err_pct": 1.87,
+  "fitted": false
+ }
+]

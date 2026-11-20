@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scene test</title>
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.min.js", "three/addons/": "./vendor/three/addons/" } }
+</script>
+<style>
+  html, body { margin: 0; height: 100%; background: #111; color: #ddd; font: 13px system-ui, sans-serif; }
+  #scene { position: absolute; inset: 0; }
+  #bar { position: absolute; top: 8px; left: 8px; right: 8px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; z-index: 2; }
+  #bar button, #bar select { background: #20242bcc; color: #eee; border: 1px solid #444b57; border-radius: 6px; padding: 5px 10px; font: inherit; cursor: pointer; }
+  #bar button.on { background: #2f6fdd; border-color: #2f6fdd; }
+  #stats { margin-left: auto; font-family: ui-monospace, monospace; background: #000a; padding: 5px 10px; border-radius: 6px; }
+  #msg { position: absolute; bottom: 8px; left: 8px; right: 8px; font-size: 12px; color: #f2b8b8; z-index: 2; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div id="scene"></div>
+<div id="bar">
+  <span id="cams"></span>
+  <select id="track"><option value="assets/test_track_monza.json">Monza</option><option value="assets/test_track_monaco.json">Monaco</option></select>
+  <select id="tod"><option>day</option><option>sunset</option><option>night</option></select>
+  <select id="quality"><option>low</option><option selected>medium</option><option>high</option></select>
+  <button id="line">Line</button><button id="corners">Corners</button>
+  <span id="stats">-- fps</span>
+</div>
+<div id="msg"></div>
+<script type="module">
+import { createScene } from './scene/scene.js';
+
+const TEAMS = ['mercedes', 'mclaren', 'ferrari', 'red_bull', 'racing_bulls', 'aston_martin', 'alpine', 'williams', 'haas', 'audi', 'cadillac'];
+const msg = document.getElementById('msg');
+window.addEventListener('error', (e) => { msg.textContent += e.message + '\n'; });
+window.addEventListener('unhandledrejection', (e) => { msg.textContent += String(e.reason) + '\n'; });
+
+const params = new URLSearchParams(location.search);
+const scene = await createScene(document.getElementById('scene'), { quality: params.get('q') || 'medium' });
+window.scene = scene;
+
+const liveries = {};
+await Promise.all(TEAMS.map(async (t) => {
+  try { const r = await fetch(`../data/liveries/${t}.json`); if (r.ok) liveries[t] = await r.json(); } catch { /* defaults */ }
+}));
+
+let track = null, cars = [];
+async function load(url) {
+  track = await (await fetch(url)).json();
+  await scene.setTrack(track, { timeOfDay: document.getElementById('tod').value });
+  cars = [];
+  const list = [];
+  for (let k = 0; k < 22; k++) {
+    const team = TEAMS[k >> 1];
+    list.push({ id: `c${k}`, team, code: team.slice(0, 3).toUpperCase(), number: k + 1, livery: liveries[team], compound: ['C3', 'C4', 'C2'][k % 3] });
+    cars.push({ id: `c${k}`, s0: k * 16, lat: k % 2 ? 2.2 : -2.2, v: 62 + (k % 5) });
+  }
+  scene.setCars(list);
+  const n = track.x.length;
+  const line = { x: track.x, y: track.y, z: track.z, psi: track.psi };
+  const speed = track.kappa.map((k) => 85 - Math.min(60, Math.abs(k) * 700));
+  scene.setLine(line, { colorBy: 'speed', telemetry: { v: speed } });
+  scene.setCamera(currentCam, 'c0');
+}
+
+let currentCam = 'orbit';
+const camBox = document.getElementById('cams');
+for (const m of scene.cameraModes) {
+  const b = document.createElement('button');
+  b.textContent = m; b.dataset.m = m;
+  b.onclick = () => { currentCam = m; scene.setCamera(m, 'c0'); mark(); };
+  camBox.appendChild(b);
+}
+const mark = () => camBox.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.m === currentCam));
+mark();
+document.getElementById('track').onchange = (e) => load(e.target.value);
+document.getElementById('tod').onchange = (e) => scene.setTimeOfDay(e.target.value);
+document.getElementById('quality').onchange = (e) => scene.setQuality(e.target.value);
+let lineOn = true, cornersOn = false;
+document.getElementById('line').onclick = () => { lineOn = !lineOn; scene.setOverlay({ line: lineOn ? 'speed' : 'off' }); };
+document.getElementById('corners').onclick = () => { cornersOn = !cornersOn; scene.setOverlay({ corners: cornersOn }); };
+
+let t = 0;
+scene.onFrame((dt) => {
+  t += dt;
+  if (!track) return;
+  const n = track.x.length, ds = track.ds;
+  const poses = cars.map((c) => {
+    const f = ((c.s0 + c.v * t) / ds) % n, i0 = Math.floor(f), a = f - i0, i1 = (i0 + 1) % n;
+    const L = (arr) => arr[i0] + (arr[i1] - arr[i0]) * a;
+    let dpsi = track.psi[i1] - track.psi[i0]; dpsi = Math.atan2(Math.sin(dpsi), Math.cos(dpsi));
+    const psi = track.psi[i0] + dpsi * a;
+    const k = L(track.kappa);
+    return {
+      id: c.id, x: L(track.x) - Math.sin(psi) * c.lat, y: L(track.y) + Math.cos(psi) * c.lat, z: L(track.z), psi,
+      speed: c.v, kappa: k, throttle: Math.abs(k) < 0.01 ? 1 : 0.3, brake: Math.abs(k) > 0.03 ? 0.4 : 0,
+      xmode: Math.abs(k) < 0.004, visible: true,
+    };
+  });
+  scene.updateCars(poses);
+});
+
+const stats = document.getElementById('stats');
+setInterval(() => {
+  const s = scene.getStats();
+  stats.textContent = `${s.fps.toFixed(0)} fps · ${s.drawCalls} calls · ${(s.triangles / 1000).toFixed(0)}k tris`;
+  const nt = s.notes.join('\n'); if (nt && !msg.textContent.includes(nt)) msg.textContent += nt + '\n';
+}, 500);
+
+await load(document.getElementById('track').value);
+</script>
+</body>
+</html>

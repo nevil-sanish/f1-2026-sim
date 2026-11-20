@@ -1,0 +1,66 @@
+{
+ "team": "audi",
+ "values": {
+  "ClA_scale": 0.9148,
+  "CdA_scale": 0.9509,
+  "ice_power": 367.1642,
+  "energy_efficiency": 0.968,
+  "mass_above_min": 2.6437
+ },
+ "prov": {
+  "ClA_scale": "public-derived",
+  "CdA_scale": "public-derived",
+  "ice_power": "public-derived",
+  "energy_efficiency": "public-derived",
+  "mass_above_min": "public-derived"
+ },
+ "fit": {
+  "target_gap_pct": 1.412,
+  "sim_gap_pct": 1.523,
+  "residual_pct": 0.111,
+  "tracks": [
+   "monza",
+   "monaco",
+   "silverstone",
+   "suzuka",
+   "baku",
+   "mexico",
+   "catalunya",
+   "cota"
+  ],
+  "per_track": {
+   "monza": {
+    "target": 0.894,
+    "sim": 1.448
+   },
+   "monaco": {
+    "target": 2.569,
+    "sim": 1.266
+   },
+   "silverstone": {
+    "target": 1.532,
+    "sim": 2.352
+   },
+   "suzuka": {
+    "target": 1.365,
+    "sim": 1.598
+   },
+   "baku": {
+    "target": 3.192,
+    "sim": 1.691
+   },
+   "mexico": {
+    "target": 1.035,
+    "sim": 1.391
+   },
+   "catalunya": {
+    "target": 1.458,
+    "sim": 1.629
+   },
+   "cota": {
+    "target": 1.194,
+    "sim": 1.423
+   }
+  }
+ }
+}

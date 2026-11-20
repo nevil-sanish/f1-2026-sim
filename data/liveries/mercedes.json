@@ -1,0 +1,22 @@
+{
+ "base": "#00d2be",
+ "secondary": "#0b0c0e",
+ "accent": "#c8cdd2",
+ "finish": "satin",
+ "regions": {
+  "nose": "base",
+  "engine_cover": "base",
+  "sidepods": "base",
+  "front_wing": "secondary",
+  "rear_wing": "secondary",
+  "endplates": "accent",
+  "halo": "carbon",
+  "floor": "carbon",
+  "wheel_covers": "carbon"
+ },
+ "numbers": {
+  "russell": 63,
+  "antonelli": 12
+ },
+ "number_color": "#0b0c0e"
+}

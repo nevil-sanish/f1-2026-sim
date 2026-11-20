@@ -1,0 +1,23 @@
+{
+ "base": "#1e2a5e",
+ "secondary": "#d81f2a",
+ "accent": "#ffd400",
+ "finish": "matte",
+ "regions": {
+  "nose": "base",
+  "engine_cover": "base",
+  "sidepods": "base",
+  "front_wing": "secondary",
+  "rear_wing": "secondary",
+  "endplates": "accent",
+  "halo": "carbon",
+  "floor": "carbon",
+  "wheel_covers": "carbon"
+ },
+ "numbers": {
+  "max_verstappen": 3,
+  "hadjar": 6,
+  "lawson": 30
+ },
+ "number_color": "#ffffff"
+}

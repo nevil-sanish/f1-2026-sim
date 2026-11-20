@@ -1,0 +1,22 @@
+{
+ "base": "#ff8000",
+ "secondary": "#1b1d22",
+ "accent": "#47c7fc",
+ "finish": "gloss",
+ "regions": {
+  "nose": "base",
+  "engine_cover": "secondary",
+  "sidepods": "base",
+  "front_wing": "secondary",
+  "rear_wing": "secondary",
+  "endplates": "accent",
+  "halo": "carbon",
+  "floor": "carbon",
+  "wheel_covers": "carbon"
+ },
+ "numbers": {
+  "norris": 1,
+  "piastri": 81
+ },
+ "number_color": "#0b0c0e"
+}

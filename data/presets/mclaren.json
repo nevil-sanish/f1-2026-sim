@@ -1,0 +1,66 @@
+{
+ "team": "mclaren",
+ "values": {
+  "ClA_scale": 0.9606,
+  "CdA_scale": 1.0151,
+  "ice_power": 400.5296,
+  "energy_efficiency": 0.9536,
+  "mass_above_min": 0.9114
+ },
+ "prov": {
+  "ClA_scale": "public-derived",
+  "CdA_scale": "public-derived",
+  "ice_power": "public-derived",
+  "energy_efficiency": "public-derived",
+  "mass_above_min": "public-derived"
+ },
+ "fit": {
+  "target_gap_pct": 0.415,
+  "sim_gap_pct": 0.469,
+  "residual_pct": 0.054,
+  "tracks": [
+   "monza",
+   "monaco",
+   "silverstone",
+   "suzuka",
+   "baku",
+   "mexico",
+   "catalunya",
+   "cota"
+  ],
+  "per_track": {
+   "monza": {
+    "target": 0.22,
+    "sim": 0.373
+   },
+   "monaco": {
+    "target": 0.795,
+    "sim": 0.478
+   },
+   "silverstone": {
+    "target": 0.869,
+    "sim": 0.95
+   },
+   "suzuka": {
+    "target": 0.399,
+    "sim": 0.487
+   },
+   "baku": {
+    "target": 0.817,
+    "sim": 0.461
+   },
+   "mexico": {
+    "target": 0.28,
+    "sim": 0.429
+   },
+   "catalunya": {
+    "target": 0.431,
+    "sim": 0.566
+   },
+   "cota": {
+    "target": 0.366,
+    "sim": 0.396
+   }
+  }
+ }
+}

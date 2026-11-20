@@ -1,0 +1,23 @@
+{
+ "base": "#f2f4f8",
+ "secondary": "#2340d9",
+ "accent": "#d81f2a",
+ "finish": "gloss",
+ "regions": {
+  "nose": "base",
+  "engine_cover": "base",
+  "sidepods": "base",
+  "front_wing": "secondary",
+  "rear_wing": "secondary",
+  "endplates": "accent",
+  "halo": "carbon",
+  "floor": "carbon",
+  "wheel_covers": "carbon"
+ },
+ "numbers": {
+  "arvid_lindblad": 41,
+  "lawson": 30,
+  "tsunoda": 22
+ },
+ "number_color": "#0b0c0e"
+}

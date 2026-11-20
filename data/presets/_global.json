@@ -1,0 +1,20 @@
+{
+ "values": {
+  "mu_scale": 1.0422,
+  "cla_floor": 3.5,
+  "cda_body": 0.6899
+ },
+ "prov": {
+  "mu_scale": "public-derived",
+  "cla_floor": "public-derived",
+  "cda_body": "public-derived"
+ },
+ "tracks": [
+  "monza",
+  "monaco",
+  "silverstone",
+  "suzuka",
+  "baku",
+  "mexico"
+ ]
+}

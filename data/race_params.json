@@ -1,0 +1,757 @@
+{
+ "generated_at": "2026-11-17T10:59:10",
+ "season": "2026",
+ "rounds_used": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20
+ ],
+ "method": {
+  "pit_loss_s": "median pit-lane time (<60 s) - pit span / (1.25 x mean race-lap speed) + 3.0 s blend loss (limiter braking + cold-tyre acceleration, estimate). Includes a typical stationary time.",
+  "stationary": "mean / sd of OpenF1 stop durations within 1.5..6 s per team; slow_prob = share of stops 6..40 s.",
+  "overtake_difficulty": "passes N counted from the lap chart (order swaps on green laps, in/out laps and damaged laps excluded); obs = clip(1 - ln(1+N)/ln(151), 0.05, 0.98); stored value = 0.5*obs + 0.5*catalogue estimate. Fallback N = 0.75 * sum|grid - finish|.",
+  "compounds": "stints and laps per hard/medium/soft label from OpenF1 stint data."
+ },
+ "stationary_ref_s": 2.9,
+ "stationary_default": {
+  "mean": 2.6,
+  "sd": 0.35,
+  "slow_prob": 0.04,
+  "prov": "estimate"
+ },
+ "tracks": {
+  "albert_park": {
+   "round": 1,
+   "catalogue": {
+    "pit_loss_s": 20.5,
+    "overtake_difficulty": 0.55
+   },
+   "pit_lane_time_s": 19.01,
+   "pit_lane_n": 26,
+   "pit_track_equiv_s": 8.37,
+   "pit_loss_s": 13.64,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 30.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.316,
+   "overtake_difficulty": 0.433,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 23,
+     "laps": 597
+    },
+    "medium": {
+     "stints": 18,
+     "laps": 272
+    },
+    "soft": {
+     "stints": 12,
+     "laps": 135
+    }
+   },
+   "median_stops": 2
+  },
+  "shanghai": {
+   "round": 2,
+   "catalogue": {
+    "pit_loss_s": 23.0,
+    "overtake_difficulty": 0.35
+   },
+   "pit_lane_time_s": 23.39,
+   "pit_lane_n": 19,
+   "pit_track_equiv_s": 9.37,
+   "pit_loss_s": 17.02,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 59.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.184,
+   "overtake_difficulty": 0.267,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 20,
+     "laps": 728
+    },
+    "medium": {
+     "stints": 16,
+     "laps": 174
+    },
+    "soft": {
+     "stints": 3,
+     "laps": 19
+    }
+   },
+   "median_stops": 1
+  },
+  "suzuka": {
+   "round": 3,
+   "catalogue": {
+    "pit_loss_s": 22.5,
+    "overtake_difficulty": 0.65
+   },
+   "pit_lane_time_s": 24.3,
+   "pit_lane_n": 29,
+   "pit_track_equiv_s": 8.54,
+   "pit_loss_s": 18.76,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 42.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.25,
+   "overtake_difficulty": 0.45,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 22,
+     "laps": 609
+    },
+    "medium": {
+     "stints": 25,
+     "laps": 493
+    },
+    "soft": {
+     "stints": 4,
+     "laps": 4
+    }
+   },
+   "median_stops": 1.0
+  },
+  "miami": {
+   "round": 4,
+   "catalogue": {
+    "pit_loss_s": 20.5,
+    "overtake_difficulty": 0.45
+   },
+   "pit_lane_time_s": 23.13,
+   "pit_lane_n": 22,
+   "pit_track_equiv_s": 9.07,
+   "pit_loss_s": 17.06,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 41.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.255,
+   "overtake_difficulty": 0.353,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 16,
+     "laps": 467
+    },
+    "medium": {
+     "stints": 24,
+     "laps": 506
+    },
+    "soft": {
+     "stints": 4,
+     "laps": 65
+    }
+   },
+   "median_stops": 1.0
+  },
+  "montreal": {
+   "round": 5,
+   "catalogue": {
+    "pit_loss_s": 18.5,
+    "overtake_difficulty": 0.4
+   },
+   "pit_lane_time_s": 25.4,
+   "pit_lane_n": 34,
+   "pit_track_equiv_s": 9.2,
+   "pit_loss_s": 19.2,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 33.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.297,
+   "overtake_difficulty": 0.349,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 2,
+     "laps": 76
+    },
+    "medium": {
+     "stints": 23,
+     "laps": 628
+    },
+    "soft": {
+     "stints": 24,
+     "laps": 496
+    }
+   },
+   "median_stops": 1.5
+  },
+  "monaco": {
+   "round": 6,
+   "catalogue": {
+    "pit_loss_s": 20.0,
+    "overtake_difficulty": 0.97
+   },
+   "pit_lane_time_s": 23.8,
+   "pit_lane_n": 61,
+   "pit_track_equiv_s": 12.28,
+   "pit_loss_s": 14.52,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 3.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.724,
+   "overtake_difficulty": 0.847,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 23,
+     "laps": 394
+    },
+    "medium": {
+     "stints": 25,
+     "laps": 639
+    },
+    "soft": {
+     "stints": 57,
+     "laps": 413
+    }
+   },
+   "median_stops": 3
+  },
+  "catalunya": {
+   "round": 7,
+   "catalogue": {
+    "pit_loss_s": 22.0,
+    "overtake_difficulty": 0.6
+   },
+   "pit_lane_time_s": 22.7,
+   "pit_lane_n": 47,
+   "pit_track_equiv_s": 9.37,
+   "pit_loss_s": 16.34,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 25.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.351,
+   "overtake_difficulty": 0.475,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 38,
+     "laps": 765
+    },
+    "medium": {
+     "stints": 19,
+     "laps": 305
+    },
+    "soft": {
+     "stints": 13,
+     "laps": 164
+    }
+   },
+   "median_stops": 3
+  },
+  "red_bull_ring": {
+   "round": 8,
+   "catalogue": {
+    "pit_loss_s": 20.0,
+    "overtake_difficulty": 0.3
+   },
+   "pit_lane_time_s": 21.56,
+   "pit_lane_n": 41,
+   "pit_track_equiv_s": 8.79,
+   "pit_loss_s": 15.77,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 33.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.297,
+   "overtake_difficulty": 0.299,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 24,
+     "laps": 618
+    },
+    "medium": {
+     "stints": 31,
+     "laps": 576
+    },
+    "soft": {
+     "stints": 8,
+     "laps": 144
+    }
+   },
+   "median_stops": 2.0
+  },
+  "silverstone": {
+   "round": 9,
+   "catalogue": {
+    "pit_loss_s": 20.5,
+    "overtake_difficulty": 0.4
+   },
+   "pit_lane_time_s": 29.58,
+   "pit_lane_n": 51,
+   "pit_track_equiv_s": 8.43,
+   "pit_loss_s": 24.15,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 38.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.27,
+   "overtake_difficulty": 0.335,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 22,
+     "laps": 457
+    },
+    "medium": {
+     "stints": 30,
+     "laps": 550
+    },
+    "soft": {
+     "stints": 21,
+     "laps": 104
+    }
+   },
+   "median_stops": 2
+  },
+  "spa": {
+   "round": 10,
+   "catalogue": {
+    "pit_loss_s": 18.5,
+    "overtake_difficulty": 0.25
+   },
+   "pit_lane_time_s": 24.74,
+   "pit_lane_n": 28,
+   "pit_track_equiv_s": 8.31,
+   "pit_loss_s": 19.43,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 37.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.275,
+   "overtake_difficulty": 0.262,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 27,
+     "laps": 584
+    },
+    "medium": {
+     "stints": 17,
+     "laps": 231
+    },
+    "soft": {
+     "stints": 7,
+     "laps": 58
+    }
+   },
+   "median_stops": 1
+  },
+  "hungaroring": {
+   "round": 11,
+   "catalogue": {
+    "pit_loss_s": 20.5,
+    "overtake_difficulty": 0.8
+   },
+   "pit_lane_time_s": 22.02,
+   "pit_lane_n": 45,
+   "pit_track_equiv_s": 10.24,
+   "pit_loss_s": 14.78,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 33.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.297,
+   "overtake_difficulty": 0.549,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 28,
+     "laps": 677
+    },
+    "medium": {
+     "stints": 20,
+     "laps": 405
+    },
+    "soft": {
+     "stints": 19,
+     "laps": 347
+    }
+   },
+   "median_stops": 2
+  },
+  "zandvoort": {
+   "round": 12,
+   "catalogue": {
+    "pit_loss_s": 21.0,
+    "overtake_difficulty": 0.8
+   },
+   "pit_lane_time_s": 18.03,
+   "pit_lane_n": 44,
+   "pit_track_equiv_s": 9.51,
+   "pit_loss_s": 11.52,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 22.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.375,
+   "overtake_difficulty": 0.588,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 29,
+     "laps": 666
+    },
+    "medium": {
+     "stints": 20,
+     "laps": 255
+    },
+    "soft": {
+     "stints": 38,
+     "laps": 447
+    }
+   },
+   "median_stops": 2.0
+  },
+  "monza": {
+   "round": 13,
+   "catalogue": {
+    "pit_loss_s": 24.0,
+    "overtake_difficulty": 0.3
+   },
+   "pit_lane_time_s": 26.39,
+   "pit_lane_n": 9,
+   "pit_track_equiv_s": 7.77,
+   "pit_loss_s": 21.62,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 70.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.15,
+   "overtake_difficulty": 0.225,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 17,
+     "laps": 531
+    },
+    "medium": {
+     "stints": 21,
+     "laps": 419
+    },
+    "soft": {
+     "stints": 14,
+     "laps": 102
+    }
+   },
+   "median_stops": 0
+  },
+  "madring": {
+   "round": 14,
+   "catalogue": {
+    "pit_loss_s": 21.0,
+    "overtake_difficulty": 0.55
+   },
+   "pit_lane_time_s": 31.48,
+   "pit_lane_n": 25,
+   "pit_track_equiv_s": 9.48,
+   "pit_loss_s": 25.01,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 18.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.413,
+   "overtake_difficulty": 0.482,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 26,
+     "laps": 839
+    },
+    "medium": {
+     "stints": 13,
+     "laps": 179
+    },
+    "soft": {
+     "stints": 8,
+     "laps": 87
+    }
+   },
+   "median_stops": 1.0
+  },
+  "baku": {
+   "round": 15,
+   "catalogue": {
+    "pit_loss_s": 20.5,
+    "overtake_difficulty": 0.3
+   },
+   "pit_lane_time_s": 20.6,
+   "pit_lane_n": 36,
+   "pit_track_equiv_s": 9.42,
+   "pit_loss_s": 14.19,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 46.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.233,
+   "overtake_difficulty": 0.266,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 0,
+     "laps": 0
+    },
+    "medium": {
+     "stints": 25,
+     "laps": 477
+    },
+    "soft": {
+     "stints": 33,
+     "laps": 499
+    }
+   },
+   "median_stops": 2
+  },
+  "sepang": {
+   "round": 16,
+   "catalogue": {
+    "pit_loss_s": 22.5,
+    "overtake_difficulty": 0.35
+   },
+   "pit_lane_time_s": 28.23,
+   "pit_lane_n": 69,
+   "pit_track_equiv_s": 9.68,
+   "pit_loss_s": 21.55,
+   "pit_loss_prov": "public-derived",
+   "overtake_difficulty": 0.35,
+   "overtake_prov": "estimate (wet race skipped)",
+   "compounds": {
+    "hard": {
+     "stints": 21,
+     "laps": 274
+    },
+    "medium": {
+     "stints": 14,
+     "laps": 178
+    },
+    "soft": {
+     "stints": 45,
+     "laps": 666
+    }
+   },
+   "median_stops": 3
+  },
+  "marina_bay": {
+   "round": 17,
+   "catalogue": {
+    "pit_loss_s": 27.0,
+    "overtake_difficulty": 0.85
+   },
+   "pit_lane_time_s": 24.37,
+   "pit_lane_n": 25,
+   "pit_track_equiv_s": 10.44,
+   "pit_loss_s": 16.93,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 26.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.343,
+   "overtake_difficulty": 0.597,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 0,
+     "laps": 0
+    },
+    "medium": {
+     "stints": 22,
+     "laps": 562
+    },
+    "soft": {
+     "stints": 25,
+     "laps": 674
+    }
+   },
+   "median_stops": 1.0
+  },
+  "cota": {
+   "round": 18,
+   "catalogue": {
+    "pit_loss_s": 20.5,
+    "overtake_difficulty": 0.4
+   },
+   "pit_lane_time_s": 24.23,
+   "pit_lane_n": 32,
+   "pit_track_equiv_s": 9.59,
+   "pit_loss_s": 17.63,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 44.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.241,
+   "overtake_difficulty": 0.321,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 18,
+     "laps": 506
+    },
+    "medium": {
+     "stints": 11,
+     "laps": 189
+    },
+    "soft": {
+     "stints": 25,
+     "laps": 468
+    }
+   },
+   "median_stops": 1
+  },
+  "mexico": {
+   "round": 19,
+   "catalogue": {
+    "pit_loss_s": 22.0,
+    "overtake_difficulty": 0.5
+   },
+   "pit_lane_time_s": 23.77,
+   "pit_lane_n": 38,
+   "pit_track_equiv_s": 9.89,
+   "pit_loss_s": 16.88,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 25.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.351,
+   "overtake_difficulty": 0.425,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 0,
+     "laps": 0
+    },
+    "medium": {
+     "stints": 20,
+     "laps": 315
+    },
+    "soft": {
+     "stints": 59,
+     "laps": 1047
+    }
+   },
+   "median_stops": 2
+  },
+  "interlagos": {
+   "round": 20,
+   "catalogue": {
+    "pit_loss_s": 21.0,
+    "overtake_difficulty": 0.3
+   },
+   "pit_lane_time_s": 24.46,
+   "pit_lane_n": 58,
+   "pit_track_equiv_s": 9.22,
+   "pit_loss_s": 18.24,
+   "pit_loss_prov": "public-derived",
+   "overtakes": 34.0,
+   "overtakes_method": "lap-chart",
+   "overtake_difficulty_obs": 0.291,
+   "overtake_difficulty": 0.296,
+   "overtake_prov": "public-derived (50/50 blend with estimate)",
+   "compounds": {
+    "hard": {
+     "stints": 0,
+     "laps": 0
+    },
+    "medium": {
+     "stints": 0,
+     "laps": 0
+    },
+    "soft": {
+     "stints": 38,
+     "laps": 921
+    }
+   },
+   "median_stops": 3.0
+  }
+ },
+ "teams": {
+  "alpine": {
+   "stationary_mean": 3.067,
+   "stationary_sd": 0.717,
+   "slow_prob": 0.055,
+   "n": 55,
+   "prov": "public-derived"
+  },
+  "aston_martin": {
+   "stationary_mean": 3.084,
+   "stationary_sd": 0.826,
+   "slow_prob": 0.229,
+   "n": 48,
+   "prov": "public-derived"
+  },
+  "audi": {
+   "stationary_mean": 2.889,
+   "stationary_sd": 0.738,
+   "slow_prob": 0.13,
+   "n": 54,
+   "prov": "public-derived"
+  },
+  "cadillac": {
+   "stationary_mean": 3.886,
+   "stationary_sd": 0.925,
+   "slow_prob": 0.222,
+   "n": 54,
+   "prov": "public-derived"
+  },
+  "ferrari": {
+   "stationary_mean": 2.757,
+   "stationary_sd": 0.556,
+   "slow_prob": 0.085,
+   "n": 59,
+   "prov": "public-derived"
+  },
+  "haas": {
+   "stationary_mean": 3.502,
+   "stationary_sd": 0.725,
+   "slow_prob": 0.241,
+   "n": 54,
+   "prov": "public-derived"
+  },
+  "mclaren": {
+   "stationary_mean": 3.349,
+   "stationary_sd": 1.081,
+   "slow_prob": 0.152,
+   "n": 46,
+   "prov": "public-derived"
+  },
+  "mercedes": {
+   "stationary_mean": 2.771,
+   "stationary_sd": 0.614,
+   "slow_prob": 0.087,
+   "n": 46,
+   "prov": "public-derived"
+  },
+  "racing_bulls": {
+   "stationary_mean": 2.877,
+   "stationary_sd": 0.657,
+   "slow_prob": 0.055,
+   "n": 55,
+   "prov": "public-derived"
+  },
+  "red_bull": {
+   "stationary_mean": 2.963,
+   "stationary_sd": 0.823,
+   "slow_prob": 0.085,
+   "n": 47,
+   "prov": "public-derived"
+  },
+  "williams": {
+   "stationary_mean": 3.187,
+   "stationary_sd": 0.842,
+   "slow_prob": 0.229,
+   "n": 70,
+   "prov": "public-derived"
+  }
+ }
+}

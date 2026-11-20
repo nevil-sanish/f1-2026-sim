@@ -1,0 +1,24 @@
+{
+ "base": "#f2f4f8",
+ "secondary": "#0b0c0e",
+ "accent": "#e10600",
+ "finish": "gloss",
+ "regions": {
+  "nose": "base",
+  "engine_cover": "base",
+  "sidepods": "base",
+  "front_wing": "secondary",
+  "rear_wing": "secondary",
+  "endplates": "accent",
+  "halo": "carbon",
+  "floor": "carbon",
+  "wheel_covers": "carbon"
+ },
+ "numbers": {
+  "bearman": 87,
+  "rafael_camara": 51,
+  "ryo_hirakawa": 50,
+  "ocon": 31
+ },
+ "number_color": "#0b0c0e"
+}

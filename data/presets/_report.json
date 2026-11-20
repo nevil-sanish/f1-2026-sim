@@ -1,0 +1,181 @@
+{
+ "generated_at": "2026-11-20T01:19:18+00:00",
+ "global": {
+  "mu_scale": 1.0422,
+  "cla_floor": 3.5,
+  "cda_body": 0.6899
+ },
+ "teams": [
+  {
+   "team": "mercedes",
+   "target_gap_pct": 0.0,
+   "sim_gap_pct": 0.008,
+   "residual_pct": 0.008,
+   "params": {
+    "ClA_scale": 1.0004,
+    "CdA_scale": 1.0008,
+    "ice_power": 400.1378,
+    "energy_efficiency": 0.9152,
+    "mass_above_min": 0.0094
+   },
+   "standing_pos": 1,
+   "pace_rank": 1
+  },
+  {
+   "team": "ferrari",
+   "target_gap_pct": 0.233,
+   "sim_gap_pct": 0.255,
+   "residual_pct": 0.022,
+   "params": {
+    "ClA_scale": 1.0051,
+    "CdA_scale": 0.9953,
+    "ice_power": 387.993,
+    "energy_efficiency": 0.9026,
+    "mass_above_min": 0.1179
+   },
+   "standing_pos": 2,
+   "pace_rank": 2
+  },
+  {
+   "team": "mclaren",
+   "target_gap_pct": 0.415,
+   "sim_gap_pct": 0.469,
+   "residual_pct": 0.054,
+   "params": {
+    "ClA_scale": 0.9606,
+    "CdA_scale": 1.0151,
+    "ice_power": 400.5296,
+    "energy_efficiency": 0.9536,
+    "mass_above_min": 0.9114
+   },
+   "standing_pos": 4,
+   "pace_rank": 3
+  },
+  {
+   "team": "red_bull",
+   "target_gap_pct": 0.403,
+   "sim_gap_pct": 0.543,
+   "residual_pct": 0.141,
+   "params": {
+    "ClA_scale": 0.9968,
+    "CdA_scale": 1.0786,
+    "ice_power": 404.8612,
+    "energy_efficiency": 0.9343,
+    "mass_above_min": 2.8737
+   },
+   "standing_pos": 3,
+   "pace_rank": 4
+  },
+  {
+   "team": "racing_bulls",
+   "target_gap_pct": 1.281,
+   "sim_gap_pct": 1.208,
+   "residual_pct": -0.073,
+   "params": {
+    "ClA_scale": 0.9269,
+    "CdA_scale": 0.9955,
+    "ice_power": 384.1531,
+    "energy_efficiency": 0.9673,
+    "mass_above_min": 2.6881
+   },
+   "standing_pos": 5,
+   "pace_rank": 5
+  },
+  {
+   "team": "alpine",
+   "target_gap_pct": 1.297,
+   "sim_gap_pct": 1.243,
+   "residual_pct": -0.054,
+   "params": {
+    "ClA_scale": 0.8718,
+    "CdA_scale": 0.9478,
+    "ice_power": 398.9599,
+    "energy_efficiency": 0.9601,
+    "mass_above_min": 5.7981
+   },
+   "standing_pos": 6,
+   "pace_rank": 6
+  },
+  {
+   "team": "audi",
+   "target_gap_pct": 1.412,
+   "sim_gap_pct": 1.523,
+   "residual_pct": 0.111,
+   "params": {
+    "ClA_scale": 0.9148,
+    "CdA_scale": 0.9509,
+    "ice_power": 367.1642,
+    "energy_efficiency": 0.968,
+    "mass_above_min": 2.6437
+   },
+   "standing_pos": 8,
+   "pace_rank": 7
+  },
+  {
+   "team": "haas",
+   "target_gap_pct": 1.968,
+   "sim_gap_pct": 2.0,
+   "residual_pct": 0.032,
+   "params": {
+    "ClA_scale": 0.8501,
+    "CdA_scale": 0.9837,
+    "ice_power": 397.4406,
+    "energy_efficiency": 1.0,
+    "mass_above_min": 15.3329
+   },
+   "standing_pos": 7,
+   "pace_rank": 8
+  },
+  {
+   "team": "williams",
+   "target_gap_pct": 2.522,
+   "sim_gap_pct": 2.342,
+   "residual_pct": -0.179,
+   "params": {
+    "ClA_scale": 0.87,
+    "CdA_scale": 0.9609,
+    "ice_power": 384.6251,
+    "energy_efficiency": 0.881,
+    "mass_above_min": 19.2364
+   },
+   "standing_pos": 9,
+   "pace_rank": 9
+  },
+  {
+   "team": "cadillac",
+   "target_gap_pct": 3.678,
+   "sim_gap_pct": 3.552,
+   "residual_pct": -0.126,
+   "params": {
+    "ClA_scale": 0.8531,
+    "CdA_scale": 0.9065,
+    "ice_power": 346.7476,
+    "energy_efficiency": 0.8655,
+    "mass_above_min": 19.9943
+   },
+   "standing_pos": 11,
+   "pace_rank": 10
+  },
+  {
+   "team": "aston_martin",
+   "target_gap_pct": 4.235,
+   "sim_gap_pct": 4.059,
+   "residual_pct": -0.176,
+   "params": {
+    "ClA_scale": 0.85,
+    "CdA_scale": 1.1499,
+    "ice_power": 381.1087,
+    "energy_efficiency": 1.0,
+    "mass_above_min": 19.999
+   },
+   "standing_pos": 10,
+   "pace_rank": 11
+  }
+ ],
+ "notes": [
+  "dry sessions used: 8; wet sessions skipped (rain fraction > 0.2)",
+  "calibrated with the default driver rating (no driver nudge); tyre_wear_scale is not fitted",
+  "Spearman correlation of fitted pace order vs constructor standings: 0.97"
+ ],
+ "runtime_s": 132.9
+}

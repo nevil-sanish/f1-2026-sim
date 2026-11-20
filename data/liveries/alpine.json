@@ -1,0 +1,22 @@
+{
+ "base": "#0090ff",
+ "secondary": "#f04e9b",
+ "accent": "#f2f4f8",
+ "finish": "gloss",
+ "regions": {
+  "nose": "base",
+  "engine_cover": "base",
+  "sidepods": "base",
+  "front_wing": "secondary",
+  "rear_wing": "secondary",
+  "endplates": "accent",
+  "halo": "carbon",
+  "floor": "carbon",
+  "wheel_covers": "carbon"
+ },
+ "numbers": {
+  "gasly": 10,
+  "colapinto": 43
+ },
+ "number_color": "#0b0c0e"
+}

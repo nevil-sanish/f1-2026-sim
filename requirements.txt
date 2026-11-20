@@ -1,0 +1,4 @@
+numpy
+scipy
+# optional speed-up:
+# numba

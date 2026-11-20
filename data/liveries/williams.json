@@ -1,0 +1,22 @@
+{
+ "base": "#005aff",
+ "secondary": "#0b1a4a",
+ "accent": "#f2f4f8",
+ "finish": "gloss",
+ "regions": {
+  "nose": "base",
+  "engine_cover": "base",
+  "sidepods": "base",
+  "front_wing": "secondary",
+  "rear_wing": "secondary",
+  "endplates": "accent",
+  "halo": "carbon",
+  "floor": "carbon",
+  "wheel_covers": "carbon"
+ },
+ "numbers": {
+  "albon": 23,
+  "sainz": 55
+ },
+ "number_color": "#ffffff"
+}

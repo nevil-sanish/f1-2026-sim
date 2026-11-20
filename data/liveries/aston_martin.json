@@ -1,0 +1,22 @@
+{
+ "base": "#00665e",
+ "secondary": "#0b0c0e",
+ "accent": "#cedc00",
+ "finish": "satin",
+ "regions": {
+  "nose": "base",
+  "engine_cover": "base",
+  "sidepods": "base",
+  "front_wing": "secondary",
+  "rear_wing": "secondary",
+  "endplates": "accent",
+  "halo": "carbon",
+  "floor": "carbon",
+  "wheel_covers": "carbon"
+ },
+ "numbers": {
+  "stroll": 18,
+  "alonso": 14
+ },
+ "number_color": "#ffffff"
+}

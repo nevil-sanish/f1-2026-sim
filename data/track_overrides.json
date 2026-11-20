@@ -1,0 +1,1 @@
+{"_note": "Per-track overrides: width_m, kerb_kappa_threshold, pit_entry_s, pit_exit_s, elevation: false to force flat.", "monaco": {"width_m": 9.5}, "baku": {"width_m": 10.5}, "marina_bay": {"width_m": 10.5}, "las_vegas": {"width_m": 12.0}, "miami": {"width_m": 12.5}, "jeddah": {"width_m": 11.0}, "madring": {"width_m": 12.0}, "lusail": {"width_m": 12.0}}

@@ -1,0 +1,7 @@
+Livery decal slot (optional, user-supplied).
+
+The bundled liveries (data/liveries/<team>.json) are colours only: base, secondary, accent and a number
+colour. They carry no logos, sponsor text or badges, on purpose, because those are trademarks.
+
+If you want your own decals, drop PNG files here and list them per team under "liveries" in
+web/assets/local_index.json. You are responsible for having the right to use anything you add.

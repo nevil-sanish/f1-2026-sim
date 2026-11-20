@@ -1,0 +1,66 @@
+{
+ "team": "cadillac",
+ "values": {
+  "ClA_scale": 0.8531,
+  "CdA_scale": 0.9065,
+  "ice_power": 346.7476,
+  "energy_efficiency": 0.8655,
+  "mass_above_min": 19.9943
+ },
+ "prov": {
+  "ClA_scale": "public-derived",
+  "CdA_scale": "public-derived",
+  "ice_power": "public-derived",
+  "energy_efficiency": "public-derived",
+  "mass_above_min": "public-derived"
+ },
+ "fit": {
+  "target_gap_pct": 3.678,
+  "sim_gap_pct": 3.552,
+  "residual_pct": -0.126,
+  "tracks": [
+   "monza",
+   "monaco",
+   "silverstone",
+   "suzuka",
+   "baku",
+   "mexico",
+   "catalunya",
+   "cota"
+  ],
+  "per_track": {
+   "monza": {
+    "target": 3.152,
+    "sim": 3.23
+   },
+   "monaco": {
+    "target": 3.742,
+    "sim": 2.698
+   },
+   "silverstone": {
+    "target": 3.536,
+    "sim": 4.819
+   },
+   "suzuka": {
+    "target": 3.861,
+    "sim": 3.615
+   },
+   "baku": {
+    "target": 4.03,
+    "sim": 3.678
+   },
+   "mexico": {
+    "target": 3.386,
+    "sim": 3.041
+   },
+   "catalunya": {
+    "target": 3.838,
+    "sim": 3.75
+   },
+   "cota": {
+    "target": 3.614,
+    "sim": 3.489
+   }
+  }
+ }
+}

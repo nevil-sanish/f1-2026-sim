@@ -1,0 +1,22 @@
+{
+ "base": "#dc0000",
+ "secondary": "#f5f0e6",
+ "accent": "#ffeb00",
+ "finish": "gloss",
+ "regions": {
+  "nose": "secondary",
+  "engine_cover": "base",
+  "sidepods": "base",
+  "front_wing": "secondary",
+  "rear_wing": "secondary",
+  "endplates": "accent",
+  "halo": "carbon",
+  "floor": "carbon",
+  "wheel_covers": "carbon"
+ },
+ "numbers": {
+  "leclerc": 16,
+  "hamilton": 44
+ },
+ "number_color": "#ffffff"
+}

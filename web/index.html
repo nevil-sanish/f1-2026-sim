@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F1 2026 Simulator</title>
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.min.js", "three/addons/": "./vendor/three/addons/" } }
+</script>
+</head>
+<body data-mode="lap">
+<header id="top">
+  <div class="brand"><span class="stripe"></span><b>F1&nbsp;2026</b><span class="dim">simulator</span></div>
+  <nav id="modes" role="tablist" aria-label="Mode"></nav>
+  <span class="tb-fill"></span>
+  <div id="hdr-data"></div>
+</header>
+
+<main id="app">
+  <aside id="left" aria-label="Controls">
+    <section class="selectors">
+      <label class="field"><span>Track</span><select id="sel-track"></select></label>
+      <div class="row gap">
+        <label class="field grow"><span>Team</span><select id="sel-team"></select></label>
+        <label class="field grow"><span>Driver</span><select id="sel-driver"></select></label>
+      </div>
+    </section>
+    <div id="mode-panels"></div>
+    <div id="setup-panel"></div>
+  </aside>
+
+  <section id="stage" aria-label="Scene and telemetry">
+    <div id="scene-bar" class="bar"></div>
+    <div id="scene-wrap">
+      <div id="scene"></div>
+      <div id="hud" class="mono"></div>
+    </div>
+    <div id="replay" class="bar"></div>
+    <div id="dock">
+      <div id="dock-tabs" class="tabs" role="tablist"></div>
+      <div id="dock-body"></div>
+    </div>
+  </section>
+
+  <aside id="right" aria-label="Results"></aside>
+
+  <section id="page" hidden></section>
+</main>
+
+<footer id="notices"></footer>
+<div id="sheet" hidden></div>
+<div id="toasts" aria-live="polite"></div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
