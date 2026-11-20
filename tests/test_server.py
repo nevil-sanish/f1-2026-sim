@@ -418,5 +418,43 @@ class ServerTest(unittest.TestCase):
         self.assertEqual(job["status"], "done", job["error"])
 
 
+class PublicModeTest(unittest.TestCase):
+    """The hosted demo (run.py with PORT set) answers reads and sims but refuses anything that writes to disk."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.srv = server.make_server("127.0.0.1", 0, public=True)
+        cls.base = f"http://127.0.0.1:{cls.srv.server_address[1]}"
+        threading.Thread(target=cls.srv.serve_forever, daemon=True).start()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.srv.shutdown()
+        cls.srv.server_close()
+
+    def code(self, path, body=None):
+        r = urllib.request.Request(self.base + path, data=None if body is None else json.dumps(body).encode(),
+                                   headers={"Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(r, timeout=60) as f:
+                return f.status
+        except urllib.error.HTTPError as e:
+            return e.code
+
+    def test_reads_and_sims_work(self):
+        self.assertEqual(self.code("/api/tracks"), 200)
+        self.assertEqual(self.code("/api/simulate", {"track": "monza"}), 200)
+
+    def test_writes_are_refused(self):
+        self.assertEqual(self.code("/api/setups", {"name": "x", "overrides": {}}), 403)
+        self.assertEqual(self.code("/api/setups/x/delete", {}), 403)
+        self.assertEqual(self.code("/api/liveries/ferrari", {"primary": "#ff0000"}), 403)
+        self.assertEqual(self.code("/api/calibrate", {}), 403)
+
+    def test_monte_carlo_is_capped(self):
+        body = {"track": "monza", "entries": [{"team": "ferrari", "driver": "leclerc"}], "monte_carlo": 5000}
+        self.assertEqual(self.code("/api/race", body), 400)
+
+
 if __name__ == "__main__":
     unittest.main()

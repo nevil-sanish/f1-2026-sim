@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import errno
 import json
+import os
 import sys
 import threading
 import webbrowser
@@ -17,9 +18,14 @@ FETCH_CMD = "python scripts/fetch_data.py"
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="Local F1 2026 lap and race simulator")
-    ap.add_argument("--port", type=int, default=8765)
-    ap.add_argument("--host", default="127.0.0.1", help="bind address (default: local only)")
-    ap.add_argument("--no-browser", action="store_true", help="do not open the browser")
+    # hosts such as Render set PORT; there the app must listen on all interfaces and run as the read-only demo
+    hosted = "PORT" in os.environ
+    ap.add_argument("--port", type=int, default=int(os.environ.get("PORT", 8765)))
+    ap.add_argument("--host", default="0.0.0.0" if hosted else "127.0.0.1",
+                    help="bind address (default: local only, or 0.0.0.0 when PORT is set)")
+    ap.add_argument("--public", action="store_true", default=hosted or os.environ.get("F1SIM_PUBLIC") == "1",
+                    help="read-only public demo: no saving setups/liveries, no calibration runs")
+    ap.add_argument("--no-browser", action="store_true", default=hosted, help="do not open the browser")
     ap.add_argument("--verbose", action="store_true", help="log every request")
     args = ap.parse_args(argv)
 
@@ -50,7 +56,7 @@ def main(argv=None) -> int:
         print("  warning:    web/index.html is missing - only the JSON API will work")
 
     try:
-        srv = server.make_server(args.host, args.port, verbose=args.verbose)
+        srv = server.make_server(args.host, args.port, verbose=args.verbose, public=args.public)
     except OSError as e:
         if e.errno == errno.EADDRINUSE:
             print(f"\nPort {args.port} is already in use (is the simulator already running?).\n"
@@ -58,7 +64,9 @@ def main(argv=None) -> int:
         else:
             print(f"\nCould not start the server on {args.host}:{args.port}: {e}", file=sys.stderr)
         return 2
-    if not srv.loopback_only:
+    if args.public:
+        print("  mode:       public read-only demo")
+    elif not srv.loopback_only:
         print(f"  warning:    bound to {args.host}: the simulator has no authentication, anyone who can reach"
               " this address can use it")
     shown = "127.0.0.1" if args.host in ("0.0.0.0", "") else (f"[{args.host}]" if ":" in args.host else args.host)

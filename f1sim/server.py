@@ -34,6 +34,7 @@ MAX_BODY = 2 * 1024 * 1024       # request body limit [bytes]
 MAX_COMPARE = 8
 MAX_ENTRIES = 22
 MAX_MONTE_CARLO = 2000
+PUBLIC_MAX_MONTE_CARLO = 100  # shared free-tier CPU
 SIM_CACHE_SIZE = 32
 CORNER_PAD_M = 30.0              # search this far either side of a corner's i0..i1 for its minimum speed
 
@@ -881,6 +882,18 @@ class Handler(BaseHTTPRequestHandler):
         path = unquote(urlsplit(self.path).path)
         seg = [p for p in path.split("/")[2:] if p] if path.startswith("/api/") else []
         body = self._body()
+        if getattr(self.server, "public", False):
+            writes = (seg in (["calibrate"], ["setups"]) or (len(seg) == 2 and seg[0] == "liveries")
+                      or (len(seg) == 3 and seg[0] == "setups"))
+            if writes:
+                raise ApiError(403, "read-only in the public demo: run the simulator locally to save setups,"
+                                    " edit liveries or re-run calibration")
+            if seg == ["race"] and isinstance(body, dict):
+                try:
+                    if int(body.get("monte_carlo") or 0) > PUBLIC_MAX_MONTE_CARLO:
+                        raise ApiError(400, f"'monte_carlo' is limited to {PUBLIC_MAX_MONTE_CARLO} in the public demo")
+                except (TypeError, ValueError):
+                    pass
         simple = {"simulate": simulate, "compare": compare, "race": start_race, "optimise": start_optimise,
                   "calibrate": start_calibrate, "setups": save_setup}
         if len(seg) == 1 and seg[0] in simple:
@@ -929,12 +942,13 @@ class Server(ThreadingHTTPServer):
 
 
 def make_server(host: str = "127.0.0.1", port: int = 8765, web_root: Path | str | None = None,
-                verbose: bool = False) -> Server:
+                verbose: bool = False, public: bool = False) -> Server:
     """Create (but do not start) the server. port=0 picks a free port: see server.server_address."""
     srv = Server((host, port), Handler)
     srv.web_root = Path(web_root) if web_root else WEB
     srv.verbose = verbose
     srv.loopback_only = host in ("127.0.0.1", "localhost", "::1")
+    srv.public = public  # hosted demo: no writes to disk, capped Monte Carlo
     return srv
 
 
